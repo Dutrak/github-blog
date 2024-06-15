@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   faArrowUpRightFromSquare,
   faBuilding,
@@ -12,33 +13,48 @@ import {
   ProfileTitle,
 } from './styles'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useEffect, useState } from 'react'
+import { User } from '../../@types/github'
+import { api } from '../../lib/axios'
 
 export function Profile() {
+  const username = 'Dutrak'
+  const [userData, setUserData] = useState<User>({} as User)
+
+  async function fetchuser(username: string) {
+    const response = await api.get(`/users/${username}`)
+    const { login, avatar_url, html_url, bio, followers } = await response.data
+
+    setUserData({
+      login,
+      avatar_url,
+      bio,
+      followers,
+      html_url,
+    })
+  }
+
+  useEffect(() => {
+    fetchuser(username)
+  }, [])
+
   return (
     <ProfileContainer>
       <ProfileCard>
-        <img src="https://github.com/dutrak.png" alt="dutrak" />
+        <img src={userData.avatar_url} alt="dutrak" />
         <ProfileContent>
           <ProfileTitle>
             <h1>Dutrak</h1>
-            <a
-              href="https://github.com/dutrak"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={userData.html_url} target="_blank" rel="noreferrer">
               github
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="1x" />
             </a>
           </ProfileTitle>
-          <p>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </p>
+          <p>{userData.bio}</p>
           <ProfileFooter>
             <div>
               <FontAwesomeIcon icon={faGithub} />
-              <span>Dutrak</span>
+              <span>{userData.login}</span>
             </div>
 
             <div>
@@ -48,7 +64,11 @@ export function Profile() {
 
             <div>
               <FontAwesomeIcon icon={faUserGroup} />
-              <span>32 Seguidores</span>
+              {userData.followers === 1 ? (
+                <span>{userData.followers} seguidor</span>
+              ) : (
+                <span>{userData.followers} seguidores</span>
+              )}
             </div>
           </ProfileFooter>
         </ProfileContent>
