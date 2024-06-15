@@ -5,3 +5,12 @@ export interface User {
   bio: string
   followers: number
 }
+
+export interface Issue {
+  title: string
+  content: string
+  user: User
+  comments: number
+  number: number
+  createdAt: string
+}
