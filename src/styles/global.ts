@@ -42,7 +42,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a:hover{
-    /* text-decoration: underline */
     border-bottom: 1px solid ${(props) => props.theme.blue}
   }
 
