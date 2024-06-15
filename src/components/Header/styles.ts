@@ -15,4 +15,10 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  div {
+    a:hover {
+      border-bottom: 1px solid transparent;
+    }
+  }
 `

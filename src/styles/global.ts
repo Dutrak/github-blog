@@ -11,6 +11,16 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme['base-border']};
     background-color: ${(props) => props.theme['base-input']};
+    padding: 0.875rem 1rem;
+
+    color: ${(props) => props.theme['base-text']};
+
+    &::placeholder {
+      color: ${(props) => props.theme['base-label']};
+    }
+
+    transition: ease-in-out 200ms
+
   }
 
   input:focus {
@@ -24,10 +34,11 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     color: ${(props) => props.theme.blue};
     font-weight: 700;
-    line-height: 160%;
     text-transform: uppercase; 
     text-decoration: none;
-    border-bottom: 1px solid transparent
+    border-bottom: 1px solid transparent;
+
+    transition: ease-in-out 300ms
   }
 
   a:hover{
@@ -42,6 +53,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body, input, textarea, button {
     font: 400 1rem 'Nunito', sans-serif;
+    line-height: 160%;
   }
 
 
