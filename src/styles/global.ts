@@ -18,6 +18,23 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 0 2px ${(props) => props.theme.blue};
   }
 
+  a {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: ${(props) => props.theme.blue};
+    font-weight: 700;
+    line-height: 160%;
+    text-transform: uppercase; 
+    text-decoration: none;
+    border-bottom: 1px solid transparent
+  }
+
+  a:hover{
+    /* text-decoration: underline */
+    border-bottom: 1px solid ${(props) => props.theme.blue}
+  }
+
   body {
     background-color: ${(props) => props.theme['base-background']};
     color: ${(props) => props.theme['base-text']}´

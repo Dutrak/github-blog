@@ -2,8 +2,8 @@
 
 ## Layout (Pages)
 - [ ] Home
-  - [ ] Header
-  - [ ] Profile
+  - [x] Header
+  - [x] Profile
   - [ ] SearchForm
   - [ ] Pages
 - [ ] Pages
@@ -20,7 +20,7 @@
 - [ ] Github Issues API (Post Page)
 
 ## Libs
-- [ ] Tailwind
+- [ ] styled components
 - [ ] React-Router-Dom
 - [ ] Axios
 - [ ] React-Hook-Form
