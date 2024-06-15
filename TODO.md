@@ -4,25 +4,25 @@
 - [ ] Home
   - [x] Header
   - [x] Profile
-  - [ ] SearchForm
-  - [ ] Pages
+  - [x] SearchForm
+  - [ ] Post
 - [ ] Pages
   - [ ] Header
   - [ ] TitleCard
   - [ ] Content
 
 ## Context
-- [ ] Post Context
+- [x] Issue Context
 
 ## API Github
-- [ ] Github Users API (Profile Card)
-- [ ] Github Search API (Posts List)
-- [ ] Github Issues API (Post Page)
+- [x] Github Users API (Profile Card)
+- [x] Github Search API (Posts List)
+- [x] Github Issues API (Post Page)
 
 ## Libs
-- [ ] styled components
-- [ ] React-Router-Dom
-- [ ] Axios
+- [x] styled components
+- [x] React-Router-Dom
+- [x] Axios
 - [ ] React-Hook-Form
 - [ ] Zod
 
