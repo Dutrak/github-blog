@@ -5,7 +5,7 @@
   - [x] Header
   - [x] Profile
   - [x] SearchForm
-  - [ ] Post
+  - [ ] PostCard
 - [ ] Pages
   - [ ] Header
   - [ ] TitleCard

@@ -8,7 +8,7 @@ export interface User {
 
 export interface Issue {
   title: string
-  content: string
+  body: string
   user: User
   comments: number
   number: number

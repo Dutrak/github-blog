@@ -1,12 +1,7 @@
-import {
-  ReactNode,
-  createContext,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { Issue } from '../@types/github'
 import { api } from '../lib/axios'
+import { createContext } from 'use-context-selector'
 
 interface GithubContextType {
   issues: Issue[]
@@ -25,14 +20,13 @@ export function GithubProvider({ children }: GithubProviderProps) {
 
   const [issues, setIssues] = useState<Issue[]>([])
 
-  const fetchIssues = useCallback(async (query?: string) => {
+  const fetchIssues = useCallback(async (query: string = '') => {
     const response = await api.get(`/search/issues`, {
       params: {
-        q: query,
-        repo,
+        q: `${query} repo:${repo}`,
       },
     })
-    const data = await response.data
+    const data = response.data
     setIssues(data.items)
   }, [])
 
