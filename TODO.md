@@ -1,18 +1,18 @@
 # Github Blog Application TODO
 
 ## Layout (Pages)
-- [ ] Home
+- [x] Home
   - [x] Header
   - [x] Profile
   - [x] SearchForm
-  - [ ] PostCard
-- [ ] Pages
-  - [ ] Header
-  - [ ] TitleCard
-  - [ ] Content
+  - [x] PostCard
+- [x] Pages
+  - [x] Header
+  - [x] TitleCard
+  - [x] Content
 
 ## Context
-- [x] Issue Context
+- [x] Issues Context
 
 ## API Github
 - [x] Github Users API (Profile Card)
@@ -23,7 +23,7 @@
 - [x] styled components
 - [x] React-Router-Dom
 - [x] Axios
-- [ ] React-Hook-Form
-- [ ] Zod
+- [x] React-Hook-Form
+- [x] Zod
 
 

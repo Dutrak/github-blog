@@ -12,5 +12,6 @@ export interface Issue {
   user: User
   comments: number
   number: number
-  createdAt: string
+  created_at: string
+  html_url: string
 }

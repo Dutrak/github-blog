@@ -5,6 +5,14 @@ export const CardContainer = styled.div`
   border-radius: 10px;
   padding: 2rem;
   max-width: 26rem;
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    border: 2px solid ${(props) => props.theme['base-label']};
+  }
 `
 
 export const CardContent = styled.div`
