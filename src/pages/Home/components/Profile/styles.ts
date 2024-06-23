@@ -66,3 +66,8 @@ export const ProfileFooter = styled.div`
     }
   }
 `
+export const ProfileCardSkeleton = styled.div`
+  display: flex;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+  gap: 2rem;
+`

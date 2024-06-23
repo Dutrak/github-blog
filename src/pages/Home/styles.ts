@@ -7,3 +7,8 @@ export const PostCardContainer = styled.section`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 `
+export const PostCardSkeletonContent = styled.div`
+  background-color: ${(props) => props.theme['base-post']};
+  border-radius: 10px;
+  padding: 2rem;
+`

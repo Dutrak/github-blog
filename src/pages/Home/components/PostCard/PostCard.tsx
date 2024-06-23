@@ -10,8 +10,6 @@ interface PostCardProps {
 
 export function PostCard({ data }: PostCardProps) {
   const navigate = useNavigate()
-
-  console.log(data)
   return (
     <CardContainer onClick={() => navigate(`/post/${data.number}`)}>
       <CardContent>

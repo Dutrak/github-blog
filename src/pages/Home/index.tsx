@@ -6,9 +6,11 @@ import { Issue } from '../../@types/github'
 import { Header } from '../../components/Header/Header'
 import { Profile } from './components/Profile/Profile'
 import { PostCard } from './components/PostCard/PostCard'
+import { PostsSkeleton } from './PostsSkeleton'
 
 export function Home({ repo }: { repo: string }) {
   const [issues, setIssues] = useState<Issue[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchIssues = useCallback(
     async (query: string = '') => {
@@ -19,6 +21,7 @@ export function Home({ repo }: { repo: string }) {
       })
       const data = response.data
       setIssues(data.items)
+      setIsLoading(false)
     },
     [repo],
   )
@@ -33,6 +36,7 @@ export function Home({ repo }: { repo: string }) {
       <Profile />
       <SearchForm fetchIssues={fetchIssues} />
       <PostCardContainer>
+        {isLoading && <PostsSkeleton length={6} />}
         {issues.map((issue) => {
           return <PostCard data={issue} key={issue.number} />
         })}

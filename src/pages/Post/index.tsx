@@ -25,7 +25,6 @@ export function Post({ repo }: { repo: string }) {
   const fetchIssue = useCallback(async () => {
     const response = await api.get(`/repos/${repo}/issues/${id}`)
     const data = await response.data
-    console.log(data)
     setIssue(data)
   }, [id, repo])
 

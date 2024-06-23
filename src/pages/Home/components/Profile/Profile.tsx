@@ -16,17 +16,17 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
 import { User } from '../../../../@types/github'
 import { api } from '../../../../lib/axios'
+import { ProfileSkeleton } from './ProfileSkeleton'
 
 export function Profile() {
   const username = 'Dutrak'
   const [userData, setUserData] = useState<User>({} as User)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   async function fetchuser(username: string) {
     const response = await api.get(`/users/${username}`)
     const { login, avatar_url, html_url, bio, followers } = await response.data
 
-    setIsLoading(true)
     setUserData({
       login,
       avatar_url,
@@ -34,14 +34,15 @@ export function Profile() {
       followers,
       html_url,
     })
+    setIsLoading(false)
   }
 
   useEffect(() => {
     fetchuser(username)
   }, [])
 
-  if (!isLoading) {
-    return <p>Carregando...</p>
+  if (isLoading) {
+    return <ProfileSkeleton />
   }
 
   return (
