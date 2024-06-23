@@ -10,6 +10,7 @@ import remarkGfm from 'remark-gfm'
 import { PostSkeleton } from './components/PostSkeleton/PostSkeleton'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight'
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import rehypeRaw from 'rehype-raw'
 
 interface CodeProps {
   inline?: boolean
@@ -48,6 +49,7 @@ export function Post({ repo }: { repo: string }) {
       <PostContentContainer>
         <Markdown
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
           components={{
             code({ inline, className, children, ...props }: CodeProps) {
               const match = /language-(\w+)/.exec(className || '')

@@ -12,6 +12,18 @@ export const PostContentContainer = styled.main`
     color: ${(props) => props.theme['base-text']};
   }
 
+  a {
+    color: ${(props) => props.theme.blue};
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    text-transform: capitalize;
+    transition: ease-in-out 300ms;
+
+    &:hover {
+      border-bottom: 1px solid ${(props) => props.theme.blue};
+    }
+  }
+
   p {
     margin-bottom: 1.5rem;
     color: ${(props) => props.theme['base-text']};
