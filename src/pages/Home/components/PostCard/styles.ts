@@ -37,15 +37,22 @@ export const CardTitle = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: space-between;
+
   h1 {
     color: ${(props) => props.theme['base-title']};
     font-size: 1.25rem;
     font-weight: 700;
     width: 15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   p {
     color: ${(props) => props.theme['base-span']};
     font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `
