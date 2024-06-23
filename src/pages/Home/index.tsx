@@ -34,7 +34,7 @@ export function Home({ repo }: { repo: string }) {
     <>
       <Header />
       <Profile />
-      <SearchForm fetchIssues={fetchIssues} />
+      <SearchForm fetchIssues={fetchIssues} issues={issues} />
       <PostCardContainer>
         {isLoading && <PostsSkeleton length={6} />}
         {issues.map((issue) => {

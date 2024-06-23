@@ -2,6 +2,7 @@ import { SearchFormContainer, SearchFormTitle } from './styles'
 import { string, z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Issue } from '../../../../@types/github'
 
 const searchFormSchema = z.object({
   query: string(),
@@ -11,9 +12,10 @@ type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 interface SearchFormProps {
   fetchIssues: (query: string) => void
+  issues: Issue[]
 }
 
-export function SearchForm({ fetchIssues }: SearchFormProps) {
+export function SearchForm({ fetchIssues, issues }: SearchFormProps) {
   const { register, handleSubmit } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
   })
@@ -26,7 +28,11 @@ export function SearchForm({ fetchIssues }: SearchFormProps) {
     <SearchFormContainer onSubmit={handleSubmit(handleFetchIssues)}>
       <SearchFormTitle>
         <h1>Publicações</h1>
-        <span>6 publicações</span>
+        {issues.length < 2 ? (
+          <span>{issues.length} publicação</span>
+        ) : (
+          <span>{issues.length} publicações</span>
+        )}
       </SearchFormTitle>
       <input type="text" placeholder="Buscar conteúdo" {...register('query')} />
     </SearchFormContainer>
