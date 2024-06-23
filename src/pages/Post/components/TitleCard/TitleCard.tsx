@@ -14,6 +14,8 @@ import {
   TitleCardFooter,
 } from './styles'
 import { Issue } from '../../../../@types/github'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 interface TitleCardProps {
   issue: Issue
@@ -43,7 +45,12 @@ export function TitleCard({ issue }: TitleCardProps) {
 
           <div>
             <FontAwesomeIcon icon={faCalendar} />
-            <span>Há 1 dia</span>
+            <span>
+              {formatDistanceToNow(new Date(issue.created_at), {
+                addSuffix: true,
+                locale: ptBR,
+              })}
+            </span>
           </div>
 
           <div>
